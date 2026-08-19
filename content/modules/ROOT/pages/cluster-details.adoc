@@ -1,0 +1,57 @@
+= Appendix A: Technical Cluster Details
+
+include::partial$_attributes.adoc[]
+
+== Overview
+
+This appendix provides technical details about your lab environment for reference.
+
+== Cluster Access
+
+[cols="1,2",options="header"]
+|===
+| Parameter | Value
+
+| API URL
+| https://api.{openshift_cluster_ingress_domain}:6443
+
+| Console URL
+| https://console-openshift-console.{openshift_cluster_ingress_domain}
+
+| Admin Username
+| {openshift_cluster_admin_username}
+
+| Admin Password
+| {openshift_cluster_admin_password}
+|===
+
+== Installed Operators
+
+The following operators are pre-installed in your environment:
+
+[cols="1,1",options="header"]
+|===
+| Operator | Namespace
+
+| OpenShift Pipelines
+| openshift-pipelines
+
+| OpenShift GitOps
+| openshift-gitops
+|===
+
+== Useful Commands
+
+Check cluster version:
+
+[source,bash,role="copypaste"]
+----
+oc get clusterversion
+----
+
+List installed operators:
+
+[source,bash,role="copypaste"]
+----
+oc get csv -A
+----

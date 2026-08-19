@@ -1,0 +1,6 @@
+* xref:index.adoc[Welcome]
+* Exercises
+** xref:exercise-one.adoc[Exercise 1: Getting Started]
+** xref:exercise-two.adoc[Exercise 2: Building Your Application]
+* Appendices
+** xref:cluster-details.adoc[Appendix A: Technical Cluster Details]

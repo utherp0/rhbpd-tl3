@@ -1,0 +1,12 @@
+name: modules
+title: "Red Hat Build of Podman Desktop, TL3 Training Material"
+version: ~
+nav:
+  - modules/ROOT/nav.adoc
+
+asciidoc:
+  attributes:
+    experimental: true
+    lab_name: "Red Hat Build of Podman Desktop (RHBPD), TL3 Training Material"
+    release-version: master
+    page-pagination: true

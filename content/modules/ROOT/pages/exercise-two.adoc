@@ -1,0 +1,79 @@
+= Exercise 2: Building Your Application
+
+include::partial$_attributes.adoc[]
+
+== Overview
+
+In this exercise you will deploy a sample application to OpenShift and explore its runtime behaviour.
+
+== Before You Begin
+
+Ensure you have completed xref:exercise-one.adoc[Exercise 1] and are logged in to the cluster with an active `lab-exercises` project.
+
+[source,bash,role="copypaste"]
+----
+oc project lab-exercises
+----
+
+== Steps
+
+=== 1. Deploy the Application
+
+Deploy a sample application from a container image:
+
+[source,bash,role="copypaste"]
+----
+oc new-app --name=sample-app \
+  --image=quay.io/redhattraining/hello-world-nginx:latest
+----
+
+=== 2. Expose the Application
+
+Create a route to make the application accessible externally:
+
+[source,bash,role="copypaste"]
+----
+oc expose service/sample-app
+----
+
+Retrieve the route URL:
+
+[source,bash,role="copypaste"]
+----
+oc get route sample-app -o jsonpath='{.spec.host}{"\n"}'
+----
+
+=== 3. Verify the Deployment
+
+Check that the pod is running:
+
+[source,bash,role="copypaste"]
+----
+oc get pods -l deployment=sample-app
+----
+
+You should see a pod in `Running` status.
+
+Test the application endpoint:
+
+[source,bash,role="copypaste",subs="+attributes"]
+----
+curl http://$(oc get route sample-app -o jsonpath='{.spec.host}')
+----
+
+=== 4. Review Application Resources
+
+Inspect the resources created by `oc new-app`:
+
+[source,bash,role="copypaste"]
+----
+oc get all -l app=sample-app
+----
+
+== Key Takeaways
+
+* You deployed a containerised application to OpenShift using `oc new-app`.
+* You exposed the application externally via an OpenShift route.
+* You verified the deployment by checking pod status and testing the endpoint.
+
+When you are ready, review the xref:cluster-details.adoc[Technical Cluster Details] appendix for more information about your environment.

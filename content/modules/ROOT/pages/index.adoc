@@ -1,0 +1,55 @@
+= {lab_name}
+
+include::partial$_attributes.adoc[]
+
+== Welcome
+
+Welcome to the *{lab_name}* lab.
+This lab will guide you through a series of hands-on exercises designed to deepen your understanding of Red Hat technologies.
+
+== Environment Details
+
+Your lab environment has been pre-provisioned with the following credentials:
+
+[cols="1,2",options="header"]
+|===
+| Parameter | Value
+
+| OpenShift Console URL
+| https://console-openshift-console.{openshift_cluster_ingress_domain}
+
+| Admin Username
+| {openshift_cluster_admin_username}
+
+| Admin Password
+| {openshift_cluster_admin_password}
+|===
+
+== Before You Begin
+
+. Open a terminal using the *Terminal* tab on the right side of this screen.
+
+. Verify you can access the OpenShift cluster:
++
+[source,bash,role="copypaste"]
+----
+oc whoami
+----
++
+You should see the username displayed in the terminal output.
+
+. Confirm the cluster is healthy:
++
+[source,bash,role="copypaste"]
+----
+oc get nodes
+----
+
+== Lab Structure
+
+This lab contains the following exercises:
+
+* *Exercise 1: Getting Started* -- Set up your working environment and explore the cluster.
+* *Exercise 2: Building Your Application* -- Deploy and configure a sample application.
+
+When you are ready, proceed to the first exercise using the navigation menu on the left, or click *Next* at the bottom of the page.

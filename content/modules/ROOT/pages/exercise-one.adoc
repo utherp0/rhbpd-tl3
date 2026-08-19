@@ -1,0 +1,64 @@
+= Exercise 1: Getting Started
+
+include::partial$_attributes.adoc[]
+
+== Overview
+
+In this exercise you will set up your working environment and explore the pre-provisioned OpenShift cluster.
+
+== Before You Begin
+
+Ensure you have completed the steps on the xref:index.adoc[Welcome] page and can access the OpenShift cluster from your terminal.
+
+== Steps
+
+=== 1. Log In to OpenShift
+
+Use the `oc` CLI to authenticate with the cluster:
+
+[source,bash,role="copypaste",subs="+attributes"]
+----
+oc login -u {openshift_cluster_admin_username} -p {openshift_cluster_admin_password} https://api.{openshift_cluster_ingress_domain}:6443 --insecure-skip-tls-verify
+----
+
+You should see output confirming a successful login.
+
+=== 2. Create a Project
+
+Create a new project for your lab work:
+
+[source,bash,role="copypaste"]
+----
+oc new-project lab-exercises
+----
+
+=== 3. Explore the Cluster
+
+List the available namespaces:
+
+[source,bash,role="copypaste"]
+----
+oc get projects
+----
+
+Inspect the nodes in the cluster:
+
+[source,bash,role="copypaste"]
+----
+oc get nodes -o wide
+----
+
+Review the cluster operators:
+
+[source,bash,role="copypaste"]
+----
+oc get clusteroperators
+----
+
+== Key Takeaways
+
+* You authenticated to the OpenShift cluster using the `oc` CLI.
+* You created a dedicated project for your lab work.
+* You verified the cluster health by inspecting nodes and operators.
+
+When you are ready, proceed to xref:exercise-two.adoc[Exercise 2: Building Your Application].
