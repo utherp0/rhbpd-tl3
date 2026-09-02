@@ -1,0 +1,8 @@
+# Use hardened image from images.redhat.com
+FROM registry.access.redhat.com/hi/httpd:latest
+
+# Copy local site files into the web root
+COPY source/ /var/www/html/
+
+# httpd listens on port 80
+EXPOSE 80
